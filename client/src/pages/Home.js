@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import SearchBar from '../components/SearchBar';
 const Container = styled.div`
   height:100%;
   overflow-y:scroll;
@@ -42,6 +43,7 @@ const Home = () => {
       <Headline> Explore popular posts
         <Span>Generated with AI</Span>
       </Headline>
+      <SearchBar />
     </Container>
   );
 };
