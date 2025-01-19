@@ -83,7 +83,6 @@ const Home = () => {
           <ImageCard item={item} />
           <ImageCard item={item} />
           <ImageCard item={item} />
- 
         </CardWrapper>
       </Wrapper>
     </Container>
