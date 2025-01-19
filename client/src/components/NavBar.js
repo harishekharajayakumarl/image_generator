@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from './button';
 import { AddRounded } from "@mui/icons-material";
+import { useNavigate, useLocation} from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -19,13 +20,18 @@ const Container = styled.div`
   }
 `;
 const NavBar = () => {
+  const navigate = useNavigate();
   return (
     <Container>GenAI
-      <Button text="Create New Post" 
+      <Button 
+      onClick={() => navigate('/post')}
+      text="Create New Post" 
       leftIcon={
       <AddRounded style={{
         fontSize: "18px",
-      }}/>}/>
+      }}
+      />}
+      />
     </Container>
   )
 }
