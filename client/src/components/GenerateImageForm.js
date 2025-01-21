@@ -51,7 +51,7 @@ const GenerateImageForm = () => {
         </Top>
         <Body>
             <TextInput label="Author" placeholder="Enter your name.." name="name"/>
-            <TextInput label="Prompt" placeholder="Write a detailed prompt you want to generate image with.." rows="8" textArea/>
+            <TextInput label="Prompt" placeholder="Write a detailed prompt you want to generate image with.." name="name" rows="8" textArea/>
 
         </Body>
         <Actions>
