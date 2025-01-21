@@ -40,7 +40,18 @@ const Actions = styled.div`
     gap: 8px;
 `;
 
-const GenerateImageForm = () => {
+const GenerateImageForm = ({post, 
+    setPost, 
+    createPostLoading, 
+    generateImageLoading,
+    setGenerateImageLoading,
+    setCreatePostLoading,}) => {
+        const generateImageFun = () => {
+            setGenerateImageLoading(true);
+        }
+        const createPostFun = () => {
+            setCreatePostLoading(true);
+        }
   return (
     <Form>
         <Top>
@@ -50,13 +61,42 @@ const GenerateImageForm = () => {
             </Desc>
         </Top>
         <Body>
-            <TextInput label="Author" placeholder="Enter your name.." name="name"/>
-            <TextInput label="Prompt" placeholder="Write a detailed prompt you want to generate image with.." name="name" rows="8" textArea/>
+            <TextInput 
+                label="Author" 
+                placeholder="Enter your name.." 
+                name="name"
+                value={post.name}
+                handelChange={(e) => setPost({ ...post, name: e.target.value })}
+            />
+            <TextInput 
+                label="Prompt" 
+                placeholder="Write a detailed prompt you want to generate image with.." 
+                name="" 
+                rows="8" 
+                textArea
+                value={post.prompt}
+                handelChange={(e) => setPost({ ...post, prompt: e.target.value })} 
+            />
 
         </Body>
         <Actions>
-            <Button text="Generate Image" flex leftIcon={<AutoAwesome />}/>
-            <Button text="Post Image" flex  type="secondary" leftIcon={<CreateRounded />}/>
+            <Button 
+                text="Generate Image" 
+                flex 
+                leftIcon={<AutoAwesome />}
+                isLoading={generateImageLoading}
+                isDisabled={post.prompt === ""}
+                onClick={()=>generateImageFun()}
+            />
+            <Button 
+                text="Post Image" 
+                flex  
+                type="secondary" 
+                leftIcon={<CreateRounded />}
+                isLoading={createPostLoading}
+                isDisabled={post.name === "" || post.prompt === "" || post.photo === ""}
+                onClick={()=>createPostFun() }
+            />
         </Actions>
     </Form>
   )
